@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>JavaScript Object Assignment Runner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    button, input { margin: 5px; padding: 5px 10px; }
+    pre { background: #f9f9f9; padding: 10px; white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+  <h1>Open your browser console to view results</h1>
+  <h2>JavaScript Object Questions</h2>
+ 
+  <button onclick="q1()">Q1. Create Method</button>
+  <button onclick="q2()">Q2. Delete Property</button>
+  <button onclick="q3()">Q3. Dream Package</button>
+  <button onclick="q4()">Q4. Object has Properties?</button>
+  <button onclick="q5()">Q5. Merge Objects</button>
+  <button onclick="q6()">Q6. Multiply Object Values</button>
+  <button onclick="q7()">Q7. Sum of Members</button>
+  <button onclick="q8()">Q8. Compare Objects</button>
+  <br/><a href = "Assignment 6-JavaScript Object Questions.pdf">Assignment 6-JavaScript Object Questions</a>
+
+  <pre id="output"></pre>
+
+  <script>
+    function q1() {
+      let obj = { name: "Utkarsh" };
+      obj.setter = function() {
+        document.getElementById('output').textContent = this.name;
+      };
+      obj.setter();
+    }
+
+    function q2() {
+      let obj = { name: "Utkarsh", rollno: 129 };
+      delete obj.rollno;
+      document.getElementById('output').textContent = ('rollno' in obj) ? "False" : "True";
+    }
+
+    function q3() {
+      let obj = { salary: 100000 };
+      document.getElementById('output').textContent = (obj.salary > 500000) ? "Dream" : "NotDream";
+    }
+
+    function q4() {
+      let obj = {}; // Try adding a key to test
+      document.getElementById('output').textContent = Object.keys(obj).length > 0 ? "true" : "false";
+    }
+
+    function q5() {
+      let obj1 = { name: "Utkarsh", id: 129 };
+      let obj2 = { state: "Haryana", code: 121009 };
+      let merged = { ...obj1, ...obj2 };
+      document.getElementById('output').textContent = JSON.stringify(merged, null, 2);
+    }
+
+    function q6() {
+      let N = 2;
+      let obj = { id: 12, houseno: 146 };
+      obj.id *= N;
+      obj.houseno *= N;
+      document.getElementById('output').textContent = JSON.stringify(obj);
+    }
+
+    function q7() {
+      let obj = { p1: 1, p2: 2, p3: 3 };
+      let sum = obj.p1 + obj.p2 + obj.p3;
+      document.getElementById('output').textContent = sum;
+    }
+
+    function q8() {
+      let obj = { name: "Utkarsh", id: 2 };
+      let new_name = "Prepbytes";
+      let new_id = 3;
+      let result = (obj.name === new_name && obj.id === new_id) ? "true" : "false";
+      document.getElementById('output').textContent = result;
+    }
+  </script>
+</body>
+</html>
